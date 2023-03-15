@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Add Feedback{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h2>Add Feedback</h2>
+    <form method="POST" action="{{ url_for('add_feedback', username=username) }}">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        <label for="{{ form.title.id }}">Title:</label>
+        {{ form.title(class="form-control", id=form.title.id) }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.content.id }}">Content:</label>
+        {{ form.content(class="form-control", id=form.content.id) }}
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}
